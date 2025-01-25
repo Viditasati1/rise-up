@@ -30,10 +30,7 @@ import {
       id: "about",
       title: "Features",
     },
-    {
-      id: "Login",
-      title: "Login",
-    },
+    
     
     {
       id: "contact",

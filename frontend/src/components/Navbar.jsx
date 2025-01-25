@@ -1,12 +1,39 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
+import { auth } from "../firebase/firebaseConfig"; // Import Firebase auth
+import { signOut } from "firebase/auth"; // Import signOut method for logging out
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [user, setUser] = useState(null); // Track the logged-in user
+  const navigate = useNavigate();
+
+  // Check if the user is logged in
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user); // Set user state if logged in
+      } else {
+        setUser(null); // Set user to null if logged out
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup subscription on component unmount
+  }, []);
+
+  // Handle user sign out
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth); // Sign the user out
+      navigate("/"); // Redirect to the homepage after logging out
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
 
   return (
     <nav
@@ -44,6 +71,23 @@ const Navbar = () => {
               <a href={`#${navLink.id}`}>{navLink.title}</a>
             </li>
           ))}
+
+          {/* Authentication Links */}
+          {user ? (
+            <li
+              className="text-[#034752] hover:text-[#10B981] text-[18px] font-medium cursor-pointer"
+              onClick={handleSignOut}
+            >
+              Logout
+            </li>
+          ) : (
+            <li
+              className="text-[#034752] hover:text-[#10B981] text-[18px] font-medium cursor-pointer"
+              onClick={() => navigate("/Login")}
+            >
+              Login
+            </li>
+          )}
         </ul>
 
         {/* Mobile Menu Toggle */}
@@ -74,6 +118,23 @@ const Navbar = () => {
                   <a href={`#${navLink.id}`}>{navLink.title}</a>
                 </li>
               ))}
+
+              {/* Authentication Links for Mobile */}
+              {user ? (
+                <li
+                  className="text-[#034752] hover:text-[#10B981] font-medium text-[16px] cursor-pointer"
+                  onClick={handleSignOut}
+                >
+                  Logout
+                </li>
+              ) : (
+                <li
+                  className="text-[#034752] hover:text-[#10B981] font-medium text-[16px] cursor-pointer"
+                  onClick={() => navigate("/Login")}
+                >
+                  Login
+                </li>
+              )}
             </ul>
           </div>
         )}

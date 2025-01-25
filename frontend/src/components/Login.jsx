@@ -1,14 +1,31 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/firebaseConfig"; // Adjust the path to your Firebase config file
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // For error messages
+  const [loading, setLoading] = useState(false); // For button loading state
 
-  const handleLogin = (e) => {
+  const navigate = useNavigate(); // For redirection after successful login
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Firebase login logic here
-    console.log("Email:", email, "Password:", password);
+    setLoading(true);
+    setError("");
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log("User logged in:", userCredential.user);
+      navigate("/"); // Redirect to the main page after login
+    } catch (err) {
+      console.error("Login error:", err.message);
+      setError("Failed to log in. Please check your email and password.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -19,6 +36,13 @@ const Login = () => {
           <h1 className="text-3xl font-bold text-[#034752]">Welcome Back</h1>
           <p className="text-[#10B981] mt-2">Log in to Rise Up and break the barriers</p>
         </div>
+
+        {/* Error Message */}
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            {error}
+          </div>
+        )}
 
         {/* Login Form */}
         <form onSubmit={handleLogin} className="space-y-6">
@@ -54,9 +78,12 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full py-2 bg-[#10B981] text-white font-medium rounded-md hover:bg-[#034752] transition-colors"
+            className={`w-full py-2 text-white font-medium rounded-md transition-colors ${
+              loading ? "bg-gray-400 cursor-not-allowed" : "bg-[#10B981] hover:bg-[#034752]"
+            }`}
+            disabled={loading}
           >
-            Log In
+            {loading ? "Logging in..." : "Log In"}
           </button>
         </form>
 
@@ -65,7 +92,7 @@ const Login = () => {
           <p className="text-sm text-[#034752]">
             Don't have an account?{" "}
             <Link
-              to="/signup"
+              to="/Signup"
               className="text-[#10B981] font-medium hover:underline"
             >
               Sign up

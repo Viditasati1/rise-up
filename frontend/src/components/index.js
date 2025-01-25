@@ -8,9 +8,13 @@ import Works from './Works';
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 import Footer from './Footer';
+import Login from './Login';import Signup from './Signup';
+import Home from './Home';
+
 
 export {
   Hero,
+  Home,
   Navbar,
   About,
   Tech,
@@ -22,5 +26,7 @@ export {
   BallCanvas, 
   ComputersCanvas, 
   StarsCanvas,
-  Footer
+  Footer,
+  Login,
+  Signup
 }
