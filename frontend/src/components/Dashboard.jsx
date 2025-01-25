@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import PersonalityTest from "./PersonalityTest";
-import { questionSets } from "../constants"; // Import your questions array
+import PersonalityTest from './PersonalityTest';
+import { questionSets } from '../constants'; // Import your questions array
+import Navbar from './Navbar';
 
 const Dashboard = () => {
   const [isFirstTime, setIsFirstTime] = useState(true); // Tracks if the user is new
@@ -13,7 +14,8 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-gradient-to-br from-[#D9F0FF] to-[#A8D8EA]">
+      <Navbar />
       {/* Sidebar */}
       <div className="w-64 bg-[#034752] text-white p-5">
         <h2 className="text-2xl font-bold">Dashboard</h2>
@@ -34,7 +36,7 @@ const Dashboard = () => {
       <div className="flex-1 p-6">
         {/* Show the form if it's the user's first time */}
         {isFirstTime ? (
-          <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-[#D9F0FF] to-[#A8D8EA]">
+          <div className="flex justify-center items-center min-h-screen">
             <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-xl animate-fade-in">
               <h2 className="text-2xl font-bold text-[#034752] mb-6 text-center animate-slide-down">
                 Welcome! Tell Us About Yourself
@@ -97,15 +99,17 @@ const Dashboard = () => {
             </header>
 
             <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-              {/* Render Personality Test component and pass user data */}
-              <PersonalityTest 
-                questionSets={questionSets} 
-                userData={userData} // Pass age to personality test
-              />
+              {/* Personality Test with Transparency */}
+              <div className="w-full max-w-2xl bg-white/90 p-8 rounded-lg shadow-xl">
+                <PersonalityTest 
+                  questionSets={questionSets} 
+                  userData={userData} // Pass age to personality test
+                />
+              </div>
             </div>
 
             {/* Dashboard Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               <div className="bg-white shadow-lg rounded-md p-5">
                 <h3 className="text-lg text-[#034752] font-semibold">Overview</h3>
                 <p className="text-[#10B981] mt-2">
