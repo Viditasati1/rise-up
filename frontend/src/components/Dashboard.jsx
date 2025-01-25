@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PersonalityTest from "./PersonalityTest";
-import { questions } from "../constants"; // Import your questions array
-
+import { questionSets } from "../constants"; // Import your questions array
 
 const Dashboard = () => {
   const [isFirstTime, setIsFirstTime] = useState(true); // Tracks if the user is new
@@ -10,7 +9,6 @@ const Dashboard = () => {
   const handleFormSubmit = (data) => {
     setUserData(data); // Save the user data
     setIsFirstTime(false); // Mark as not first time
-    // Here, you can send the data to MongoDB
     console.log('User data submitted:', data);
   };
 
@@ -47,7 +45,6 @@ const Dashboard = () => {
                   handleFormSubmit({
                     name: e.target.name.value,
                     age: e.target.age.value,
-                    gender: e.target.gender.value,
                   });
                 }}
                 className="space-y-6"
@@ -71,21 +68,6 @@ const Dashboard = () => {
                     placeholder="Enter your age"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-[#10B981] focus:border-[#10B981]"
                   />
-                </div>
-                <div className="animate-fade-in">
-                  <label className="block text-[#034752] font-medium">Gender</label>
-                  <select
-                    name="gender"
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-[#10B981] focus:border-[#10B981]"
-                  >
-                    <option value="" disabled>
-                      Select Gender
-                    </option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                  </select>
                 </div>
                 <button
                   type="submit"
@@ -115,10 +97,14 @@ const Dashboard = () => {
             </header>
 
             <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <PersonalityTest questions={questions} />
-    </div>
-            
+              {/* Render Personality Test component and pass user data */}
+              <PersonalityTest 
+                questionSets={questionSets} 
+                userData={userData} // Pass age to personality test
+              />
+            </div>
 
+            {/* Dashboard Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white shadow-lg rounded-md p-5">
                 <h3 className="text-lg text-[#034752] font-semibold">Overview</h3>
@@ -139,6 +125,7 @@ const Dashboard = () => {
                 </p>
               </div>
             </div>
+
             <footer className="mt-10 text-center text-[#034752]">
               <p>© 2025 Your Company Name</p>
             </footer>
