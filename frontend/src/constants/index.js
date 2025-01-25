@@ -41,6 +41,195 @@ import {
       title: "FAQ",
     },
   ];
+  const questions = [
+    {
+      id: 1,
+      question: "When you think about your day-to-day life, what’s something that feels the hardest to deal with right now?",
+      options: [
+        "Keeping up with school or studies",
+        "Managing relationships with friends or family",
+        "Feeling stressed or overwhelmed",
+        "Other: ___________"
+      ]
+    },
+    {
+      id: 2,
+      question: "Do you ever feel like you’re pretending to be someone else to fit in with friends or avoid judgment?",
+      options: [
+        "No, I’m usually myself",
+        "Sometimes, depending on the situation",
+        "Yes, I feel like I do it a lot"
+      ]
+    },
+    {
+      id: 3,
+      question: "When you feel upset or overwhelmed, what’s the first thing you usually do? Does it help?",
+      options: [
+        "Talk to someone I trust (e.g., a parent, friend, or counselor)",
+        "Distract myself (e.g., watch videos, scroll on social media, or play games)",
+        "Spend time alone or avoid the problem",
+        "Other: ___________"
+      ]
+    },
+    {
+      id: 4,
+      question: "Have you ever felt like people expect too much from you, whether it’s at school, home, or even among friends? How do you handle that?",
+      options: [
+        "No, I don’t feel pressured",
+        "Yes, sometimes, but I try my best",
+        "Yes, often, and it’s overwhelming",
+        "I’m not sure"
+      ]
+    },
+    {
+      id: 5,
+      question: "Do you sometimes avoid social situations or talking to people because you’re unsure how they might react?",
+      options: [
+        "No, I feel comfortable in most situations",
+        "Sometimes, but I try to push through it",
+        "Yes, it happens often"
+      ]
+    },
+    {
+      id: 6,
+      question: "How much time do you usually spend online, and what kinds of things do you like to watch, read, or play?",
+      options: [
+        "Less than 2 hours: Mostly educational or light content",
+        "2-4 hours: A mix of entertainment and other interests",
+        "4-6 hours or more: Mostly entertainment, gaming, or social media"
+      ]
+    },
+    {
+      id: 7,
+      question: "Have you ever found yourself thinking about something you saw online for a long time—whether it was inspiring, upsetting, or confusing?",
+      options: [
+        "No, I don’t usually dwell on online content",
+        "Yes, sometimes, but I try to move on",
+        "Yes, it stays on my mind for a while"
+      ]
+    },
+    {
+      id: 8,
+      question: "When someone makes a comment about you, like how you look or act, do you take it to heart, or are you able to brush it off?",
+      options: [
+        "I don’t usually take comments personally",
+        "It depends on who said it and what they said",
+        "I take most comments to heart and think about them a lot"
+      ]
+    },
+    {
+      id: 9,
+      question: "Have you noticed that you compare yourself—your achievements, looks, or life—to others around you or people you see online?",
+      options: [
+        "No, I don’t compare myself to others",
+        "Yes, occasionally, but it doesn’t bother me much",
+        "Yes, often, and it affects how I feel"
+      ]
+    },
+    {
+      id: 10,
+      question: "Are there moments when you feel like no one understands how you’re feeling, even if they’re close to you?",
+      options: [
+        "No, I feel understood most of the time",
+        "Sometimes, I feel a bit misunderstood",
+        "Yes, I often feel like no one gets me"
+      ]
+    },
+    {
+      id: 11,
+      question: "When you need advice or have a question about something personal, like your emotions or your body, who do you feel comfortable talking to—or do you prefer to figure it out on your own?",
+      options: [
+        "A parent or guardian",
+        "A friend",
+        "A teacher or counselor",
+        "I prefer to figure it out on my own"
+      ]
+    },
+    {
+      id: 12,
+      question: "Do you sometimes feel like certain habits or routines (like checking your phone, gaming, or other things) take up more time or energy than you’d like?",
+      options: [
+        "No, I feel in control of my habits",
+        "Sometimes, but I can manage them",
+        "Yes, and I find it hard to stop"
+      ]
+    },
+    {
+      id: 13,
+      question: "Have you ever noticed yourself doing something—like trying a risky activity, saying something you didn’t mean, or acting a certain way—just because others expected it? How did that feel?",
+      options: [
+        "No, I always act true to myself",
+        "Sometimes, but I don’t feel pressured by it",
+        "Yes, and it made me uncomfortable"
+      ]
+    },
+    {
+      id: 14,
+      question: "When you think about your relationship with your family, do you feel like they understand what you’re going through, or is it hard to talk to them?",
+      options: [
+        "I feel understood by my family",
+        "It’s hard to talk to them sometimes",
+        "No, I don’t feel understood at all"
+      ]
+    },
+    {
+      id: 15,
+      question: "If you’ve ever felt low or disconnected, what’s something that’s helped you feel better—or do you find it hard to bounce back?",
+      options: [
+        "Spending time with someone I trust",
+        "Distracting myself with activities I enjoy",
+        "I usually find it hard to bounce back",
+        "Other: ___________"
+      ]
+    },
+    {
+      id: 16,
+      question: "Do you ever feel like school, homework, or extracurricular activities are too much to handle? How do you manage when it feels overwhelming?",
+      options: [
+        "No, I can handle everything well",
+        "Sometimes, but I try to stay organized",
+        "Yes, and it feels like I’m constantly stressed"
+      ]
+    },
+    {
+      id: 17,
+      question: "Have you had moments where you felt uncomfortable or unsure about things related to growing up, like changes in your body, relationships, or personal boundaries? How do you usually deal with those feelings?",
+      options: [
+        "No, I feel comfortable navigating these things",
+        "Sometimes, but I talk to someone for clarity",
+        "Yes, and it’s hard to figure out"
+      ]
+    },
+    {
+      id: 18,
+      question: "When you’re around friends or in a group, do you feel comfortable saying 'no' to things you don’t want to do—or does it feel hard to speak up?",
+      options: [
+        "Yes, I can say no easily",
+        "Sometimes, depending on the situation",
+        "No, it’s hard to say no"
+      ]
+    },
+    {
+      id: 19,
+      question: "If you’ve ever tried to change a habit—like spending less time on your phone, breaking a routine, or managing certain thoughts—what’s made it easy or hard to do so?",
+      options: [
+        "It’s usually easy for me to make changes",
+        "It’s hard because I lose motivation or feel stuck",
+        "I haven’t tried to change anything yet"
+      ]
+    },
+    {
+      id: 20,
+      question: "Looking back at recent weeks, what’s been the most challenging thing you’ve faced, and how did you try to get through it?",
+      options: [
+        "Managing school or academic pressure",
+        "Dealing with relationships or friendships",
+        "Feeling low, stressed, or anxious",
+        "Other: ___________"
+      ]
+    }
+  ];
+  
   
   const services = [
     {
@@ -273,4 +462,4 @@ import {
     },
   ];
   
-  export { services, technologies, experiences, testimonials, projects };
+  export { services, technologies, experiences, testimonials, projects, questions };

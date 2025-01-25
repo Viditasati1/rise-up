@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
+import { Link } from "react-router-dom";
 // import { ComputersCanvas } from "./canvas";
 
 const Hero = () => {
@@ -17,19 +18,19 @@ const Hero = () => {
           <h1 className={`${styles.heroHeadText} text-[#034752]`}>
             "Break Free. Reclaim Your Confidence.” <span className="text-[#10B981]">Rise Up.</span>
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-[#034752]`}>
+          <p className={`${styles.heroSubText} mt-2 text-[#ffffff]`}>
             “We’re here to help you <br className="sm:block hidden" />
             conquer social anxiety, one step at a time.”
           </p>
 
           {/* Buttons */}
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#get-started"
+            <Link
+              to="/Login"
               className="px-6 py-3 bg-[#10B981] text-white font-medium text-lg rounded-md shadow-lg hover:bg-[#0E8C6C] transition duration-300 ease-in-out"
             >
               Get Started
-            </a>
+            </Link>
             <a
               href="#about"
               className="px-6 py-3 bg-[#034752] text-white font-medium text-lg rounded-md shadow-lg hover:bg-[#023642] transition duration-300 ease-in-out"

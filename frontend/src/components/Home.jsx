@@ -33,7 +33,6 @@ const Home = () => {
 
         <About id="about" />
         <Tech />
-        <Works />
         <div className="relative z-0">
           <Contact />
           <StarsCanvas />

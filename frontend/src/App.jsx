@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { About, Home, Contact, Tech, Hero, Navbar, Works, StarsCanvas, Footer, Login, Signup } from "../src/components"; // Ensure Login and Signup are added to your components
+import { About, Home, Contact, Tech, Hero, Navbar, Works, StarsCanvas, Footer, Login, Signup, Dashboard } from "../src/components"; // Ensure Login and Signup are added to your components
 import { auth } from "./firebase/firebaseConfig"; // Adjust the path to your Firebase config file
 import { onAuthStateChanged } from "firebase/auth";
 import MultiStepForm from "./components/questions/MultistepForm";
@@ -37,11 +37,11 @@ const App = () => {
             </>
           ) : (
             // Redirect authenticated users to questionnaire (you can later replace this with the actual question page)
-            <Route path="/" element={<Navigate to="/questions" />} />
+            <Route path="/" element={<Navigate to="/dashboard" />} />
           )}
 
           {/* You can add the questionnaire route here once ready */}
-          <Route path="/questions" element={<MultiStepForm />} />
+          <Route path="/questions" element={<Dashboard />} />
         </Routes>
       </div>
     </BrowserRouter>

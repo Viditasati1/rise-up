@@ -1,4 +1,4 @@
-import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas } from './canvas';
+import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas  } from './canvas';
 import Hero from './Hero';
 import Navbar from './Navbar';
 import About from './About';
@@ -10,11 +10,15 @@ import Contact from './Contact';
 import Footer from './Footer';
 import Login from './Login';import Signup from './Signup';
 import Home from './Home';
+import Dashboard from './Dashboard'
+import PersonalityTest from './PersonalityTest';
 
 
 export {
   Hero,
   Home,
+  Dashboard,
+  PersonalityTest,
   Navbar,
   About,
   Tech,

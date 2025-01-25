@@ -1,4 +1,5 @@
 import { SectionWrapper } from "./hoc";
+import { Link } from "react-router-dom";
 
 const CallToAction = () => {
   const ctaItems = [
@@ -35,14 +36,14 @@ const CallToAction = () => {
         Take action now and break the barriers!
       </p>
 
-      {/* Call to Action Buttons */}
+      {/* Call to Action Button */}
       <div className="mt-8">
-        <a
-          href="#start-journey"
+        <Link
+          to="/Signup"
           className="bg-[#10B981] text-white text-lg font-bold py-3 px-8 rounded-lg shadow-md hover:bg-[#0e966f] transition-colors duration-300"
         >
           Start My Journey
-        </a>
+        </Link>
       </div>
 
       {/* Supporting Cards */}
@@ -54,12 +55,6 @@ const CallToAction = () => {
           >
             <h3 className="text-[#034752] text-xl font-bold">{item.name}</h3>
             <p className="text-[#10B981] text-sm mt-2">{item.description}</p>
-            <a
-              href={item.action}
-              className="text-[#10B981] text-sm font-medium mt-4 inline-block hover:underline"
-            >
-              Learn More →
-            </a>
           </div>
         ))}
       </div>
