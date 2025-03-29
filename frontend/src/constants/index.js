@@ -1,30 +1,4 @@
-import {
-    mobile,
-    backend,
-    creator,
-    web,
-    javascript,
-    typescript,
-    html,
-    css,
-    reactjs,
-    redux,
-    tailwind,
-    nodejs,
-    mongodb,
-    git,
-    figma,
-    docker,
-    meta,
-    starbucks,
-    tesla,
-    shopify,
-    carrent,
-    jobit,
-    tripguide,
-    threejs,
-  } from "../assets";
-  
+
   export const navLinks = [
     {
       id: "about",
@@ -41,250 +15,352 @@ import {
       title: "FAQ",
     },
   ];
-  const questionSets = {
-    YoungAdults: [
-      {
-        section: "Career and Academic Pressure",
-        questions: [
-          {
-            question: "How often do you feel pressured to perform academically or professionally?",
-            options: ["Rarely", "Occasionally", "Often", "Always"]
-          },
-          {
-            question: "Do you feel your achievements are good enough compared to your peers?",
-            options: ["Always", "Often", "Occasionally", "Rarely"]
-          },
-          {
-            question: "How often do you experience anxiety about your future career?",
-            options: ["Rarely", "Occasionally", "Often", "Always"]
-          }
-        ]
-      },
-      {
-        section: "Personal Habits and Technology Use",
-        questions: [
-          {
-            question: "How much time do you spend on social media daily?",
-            options: ["Less than 1 hour", "1–3 hours", "3–5 hours", "More than 5 hours"]
-          },
-          {
-            question: "Do you use porn or masturbation as a stress-relief method?",
-            options: ["Never", "Occasionally", "Often", "Always"]
-          },
-          {
-            question: "How do you feel about your body image or appearance?",
-            options: ["Very satisfied", "Somewhat satisfied", "Dissatisfied", "Very dissatisfied"]
-          },
-          {
-            question: "How often do you feel guilty or ashamed about any personal habit (e.g., gaming, eating, or porn use)?",
-            options: ["Rarely", "Occasionally", "Often", "Always"]
-          }
-        ]
-      },
-      {
-        section: "Relationships and Emotional Health",
-        questions: [
-          {
-            question: "Do you feel supported by your friends and family?",
-            options: ["Always", "Often", "Occasionally", "Rarely"]
-          },
-          {
-            question: "How comfortable are you expressing your emotions?",
-            options: ["Very comfortable", "Somewhat comfortable", "Uncomfortable", "Very uncomfortable"]
-          },
-          {
-            question: "Do you avoid certain social situations because of fear or anxiety?",
-            options: ["Never", "Rarely", "Occasionally", "Often"]
-          },
-          {
-            question: "How often do you feel lonely even when surrounded by people?",
-            options: ["Rarely", "Occasionally", "Often", "Always"]
-          }
-        ]
-      },
-      {
-        section: "Self-Care and Coping Mechanisms",
-        questions: [
-          {
-            question: "How often do you engage in self-care activities (e.g., exercise, hobbies, meditation)?",
-            options: ["Daily", "Weekly", "Occasionally", "Rarely"]
-          },
-          {
-            question: "Do you turn to unhealthy coping mechanisms like binge eating, substance use, or excessive screen time?",
-            options: ["Never", "Occasionally", "Often", "Always"]
-          },
-          {
-            question: "How frequently do you feel optimistic about your future?",
-            options: ["Always", "Often", "Occasionally", "Rarely"]
-          }
-        ]
-      },
-      {
-        section: "Mental Health Awareness and Support",
-        questions: [
-          {
-            question: "How aware are you of mental health resources available to you?",
-            options: ["Very aware", "Somewhat aware", "Not aware", "Completely unaware"]
-          },
-          {
-            question: "How comfortable are you seeking help from a professional (e.g., therapist)?",
-            options: ["Very comfortable", "Somewhat comfortable", "Uncomfortable", "Very uncomfortable"]
-          }
-        ]
-      },
-      {
-        section: "Financial Stress",
-        questions: [
-          {
-            question: "How often do you worry about student loans or personal debt?",
-            options: ["Rarely", "Occasionally", "Often", "Always"]
-          },
-          {
-            question: "Do you feel financially independent?",
-            options: ["Yes, completely", "Somewhat", "Not yet", "Not at all"]
-          }
-        ]
-      },
-      {
-        section: "Work-Life Balance",
-        questions: [
-          {
-            question: "How much time do you spend on activities you genuinely enjoy?",
-            options: ["A lot", "Some", "Very little", "None"]
-          },
-          {
-            question: "Do you feel you can maintain a healthy balance between work, study, and personal life?",
-            options: ["Always", "Often", "Occasionally", "Rarely"]
-          }
-        ]
-      }
-    ],
-    Adults: [
-      {
-        section: "Career and Professional Life",
-        questions: [
-          {
-            question: "Do you feel satisfied with your current job or career path?",
-            options: ["Very satisfied", "Somewhat satisfied", "Dissatisfied", "Very dissatisfied"]
-          },
-          {
-            question: "How often do you feel burned out at work?",
-            options: ["Rarely", "Occasionally", "Often", "Always"]
-          },
-          {
-            question: "Do you believe your job allows room for personal growth?",
-            options: ["Yes, a lot", "Somewhat", "Very little", "Not at all"]
-          }
-        ]
-      },
-      {
-        section: "Financial Stability",
-        questions: [
-          {
-            question: "How confident are you in managing your finances?",
-            options: ["Very confident", "Somewhat confident", "Not confident", "Extremely anxious"]
-          },
-          {
-            question: "Do you have a financial safety net for emergencies?",
-            options: ["Yes, completely", "Partially", "Very little", "None"]
-          }
-        ]
-      },
-      {
-        section: "Relationships and Family",
-        questions: [
-          {
-            question: "How often do you feel emotionally supported by your partner or family?",
-            options: ["Always", "Often", "Occasionally", "Rarely"]
-          },
-          {
-            question: "Do you struggle with setting boundaries in relationships?",
-            options: ["Never", "Rarely", "Occasionally", "Often"]
-          }
-        ]
-      },
-      {
-        section: "Stress and Coping Mechanisms",
-        questions: [
-          {
-            question: "How often do you experience stress about meeting life expectations?",
-            options: ["Rarely", "Occasionally", "Often", "Always"]
-          },
-          {
-            question: "Do you engage in activities that help you unwind or relax?",
-            options: ["Always", "Often", "Occasionally", "Rarely"]
-          }
-        ]
-      },
-      {
-        section: "Self-Worth and Mental Well-Being",
-        questions: [
-          {
-            question: "How often do you doubt your self-worth or abilities?",
-            options: ["Rarely", "Occasionally", "Often", "Always"]
-          },
-          {
-            question: "Do you feel guilt or shame related to personal habits or lifestyle choices?",
-            options: ["Rarely", "Occasionally", "Often", "Always"]
-          },
-          {
-            question: "How aware are you of your mental health needs?",
-            options: ["Very aware", "Somewhat aware", "Slightly aware", "Not aware"]
-          }
-        ]
-      },
-      {
-        section: "Hobbies and Self-Care",
-        questions: [
-          {
-            question: "How frequently do you dedicate time to hobbies or passions?",
-            options: ["Daily", "Weekly", "Occasionally", "Rarely"]
-          },
-          {
-            question: "Do you feel guilty about taking time off for yourself?",
-            options: ["Never", "Rarely", "Occasionally", "Often"]
-          }
-        ]
-      },
-      {
-        section: "Seeking Help",
-        questions: [
-          {
-            question: "How comfortable are you discussing personal issues with a professional?",
-            options: ["Very comfortable", "Somewhat comfortable", "Uncomfortable", "Very uncomfortable"]
-          },
-          {
-            question: "Have you ever sought professional help for mental health concerns?",
-            options: ["Yes, and it helped", "Yes, but it didn’t help", "No, but I’m considering it", "No, and I wouldn’t consider it"]
-          }
-        ]
-      },
-      {
-        section: "Future Goals and Aspirations",
-        questions: [
-          {
-            question: "Do you have clear goals for the next 5 years?",
-            options: ["Yes, very clear", "Somewhat clear", "Slightly unclear", "Not clear at all"]
-          },
-          {
-            question: "How optimistic are you about achieving those goals?",
-            options: ["Very optimistic", "Somewhat optimistic", "Not optimistic", "Very pessimistic"]
-          },
-          {
-            question: "How often do you think about making major life changes?",
-            options: ["Rarely", "Occasionally", "Often", "Always"]
-          },
-          {
-            question: "Do you feel content with the balance between your aspirations and current life?",
-            options: ["Always", "Often", "Occasionally", "Rarely"]
-          }
-        ]
-      }
-    ]
-  };
-  
+ // constants.js
+ const questionset = {
+  questionnaires: [
+    {
+      age_group: "under_18",
+      sections: [
+        {
+          name: "Self-Perception and Emotional Health",
+          questions: [
+            {
+              text: "How often do you feel overwhelmed by your daily responsibilities?",
+              options: ["Rarely", "Sometimes", "Often", "Almost always"]
+            },
+            {
+              text: "How would you rate your overall self-esteem?",
+              options: ["Very low", "Low", "Moderate", "High"]
+            },
+            {
+              text: "Do you often feel ashamed about your personal habits or choices (e.g., masturbation, watching porn)?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How frequently do you experience feelings of guilt or self-blame?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you think you set unrealistic expectations for yourself?",
+              options: ["No", "Occasionally", "Often", "Almost always"]
+            }
+          ]
+        },
+        {
+          name: "Social Life and Relationships",
+          questions: [
+            {
+              text: "How often do you feel disconnected from others, even in social settings?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How comfortable are you discussing personal struggles with friends or family?",
+              options: ["Very comfortable", "Somewhat comfortable", "Uncomfortable", "Extremely uncomfortable"]
+            },
+            {
+              text: "Do you avoid social interactions due to fear of judgment or shame?",
+              options: ["No", "Occasionally", "Often", "Always"]
+            }
+          ]
+        },
+        {
+          name: "Habits and Coping Mechanisms",
+          questions: [
+            {
+              text: "How frequently do you watch porn or engage in similar activities?",
+              options: ["Rarely", "Occasionally", "Often", "Very often"]
+            },
+            {
+              text: "Do you feel that these habits negatively impact your daily life or mental health?",
+              options: ["Not at all", "Slightly", "Moderately", "Significantly"]
+            },
+            {
+              text: "When facing stress, what is your primary coping mechanism?",
+              options: [
+                "Healthy outlets (exercise, talking to someone)",
+                "Distracting activities (gaming, TV)",
+                "Avoidance (ignoring the issue)",
+                "Harmful behaviors (self-harm, substance abuse)"
+              ]
+            }
+          ]
+        },
+        {
+          name: "Career and Financial Stress",
+          questions: [
+            {
+              text: "How often do you feel anxious about your career or future?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How confident are you in managing your financial responsibilities?",
+              options: ["Very confident", "Somewhat confident", "Not confident", "Extremely anxious"]
+            }
+          ]
+        },
+        {
+          name: "Overall Mental Health",
+          questions: [
+            {
+              text: "How often do you feel satisfied with your life?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How frequently do you experience symptoms like insomnia, loss of appetite, or fatigue?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you ever feel hopeless about the future?",
+              options: ["No", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How would you describe your current level of happiness?",
+              options: ["Very happy", "Somewhat happy", "Neutral", "Unhappy"]
+            }
+          ]
+        },
+        {
+          name: "Thoughts and Self-Control",
+          questions: [
+            {
+              text: "Do you find it challenging to control intrusive or negative thoughts?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How often do you feel you need professional help to manage your mental health?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How often do you feel motivated to make positive changes in your life?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      age_group: "18_to_25",
+      sections: [
+        {
+          name: "Career and Academic Pressure",
+          questions: [
+            {
+              text: "How often do you feel overwhelmed by academic or career expectations?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you feel unsure about the career path you’ve chosen?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How frequently do you experience self-doubt about your abilities in academics or work?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you feel that your academic or career choices align with your passions?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            }
+          ]
+        },
+        {
+          name: "Personal Habits and Coping Mechanisms",
+          questions: [
+            {
+              text: "How frequently do you procrastinate on important tasks?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How often do you use social media or gaming as a way to escape from stress?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How often do you engage in physical exercise as a coping mechanism?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Have you tried practicing mindfulness, meditation, or therapy for mental wellness?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            }
+          ]
+        },
+        {
+          name: "Relationships and Social Life",
+          questions: [
+            {
+              text: "How often do you feel disconnected from friends or peers?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Are you comfortable discussing your mental health with others?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Have you ever avoided social situations due to anxiety or fear of judgment?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you feel comfortable setting boundaries in friendships and relationships?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            }
+          ]
+        },
+        {
+          name: "Financial Stress",
+          questions: [
+            {
+              text: "How confident are you in managing your finances?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Have you ever felt financial stress affecting your mental health?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you feel financially dependent on others, and does it cause stress?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How often do you feel guilty about spending money on leisure activities?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            }
+          ]
+        },
+        {
+          name: "Overall Mental Health",
+          questions: [
+            {
+              text: "How frequently do you feel optimistic about your future?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How often do you experience anxiety or panic attacks?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you feel that your mental health affects your daily life and productivity?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you actively take steps to improve your mental health and well-being?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      age_group: "25_to_40",
+      sections: [
+        {
+          name: "Career and Life Balance",
+          questions: [
+            {
+              text: "How satisfied are you with your current work-life balance?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you feel you are achieving your career goals at the expected pace?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How often do work-related stressors impact your mental health?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Have you ever faced burnout due to work pressure?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            }
+          ]
+        },
+        {
+          name: "Family and Social Responsibilities",
+          questions: [
+            {
+              text: "How often do you feel overwhelmed by family or social responsibilities?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you find it challenging to balance personal time and family obligations?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you feel supported by your family in your personal and professional life?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How frequently do you feel guilty for not spending enough time with loved ones?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            }
+          ]
+        },
+        {
+          name: "Stress and Coping Mechanisms",
+          questions: [
+            {
+              text: "How frequently do you feel stressed about financial stability?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you engage in unhealthy habits to cope with stress (e.g., substance use, overeating)?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How often do you prioritize self-care amidst daily responsibilities?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Have you ever taken a break from work due to mental exhaustion?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            }
+          ]
+        },
+        {
+          name: "Relationships and Emotional Health",
+          questions: [
+            {
+              text: "How often do you feel emotionally disconnected from your partner, family, or friends?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you feel you are able to openly communicate your feelings and needs in relationships?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Have you faced emotional challenges due to romantic or family relationships?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How often do you feel that your relationships provide emotional support?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            }
+          ]
+        },
+        {
+          name: "Self-Care and Happiness",
+          questions: [
+            {
+              text: "How frequently do you dedicate time to self-care or hobbies?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you make time for activities that bring you joy?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "How often do you feel satisfied with your current lifestyle?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            },
+            {
+              text: "Do you feel content with your progress in personal and professional life?",
+              options: ["Rarely", "Occasionally", "Often", "Always"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
 
-  
   
   
   
@@ -292,13 +368,13 @@ import {
     {
       title: "Personalized Anxiety Assessment",
       description:
-      "Understand yourself better with AI-powered insights."
+      "Understand yourself better with RISEUP powered insights."
     },
-    {
-      title: "AI-Powered Chat Support",
-      description:
-        "Get immediate, judgment-free support.",
-    },
+    // {
+    //   title: "AI-Powered Chat Support",
+    //   description:
+    //     "Get immediate, judgment-free support.",
+    // },
     {
       title: "Virtual Role-Playing Sessions",
       description:
@@ -307,7 +383,7 @@ import {
     {
       title: "Tailored Therapy Modules",
       description:
-        "Engage with AI-based Cognitive Behavioral Therapy (CBT) exercises and guides to overcome social fears step-by-step.",
+        "Engage with Cognitive Behavioral Therapy (CBT) exercises and guides to overcome social fears step-by-step.",
     },
     {
       title: "Daily Affirmation Generator",
@@ -317,206 +393,142 @@ import {
   ];
 
   
-  const technologies = [
-    {
-      name: "HTML 5",
-      icon: html,
-    },
-    {
-      name: "CSS 3",
-      icon: css,
-    },
-    {
-      name: "JavaScript",
-      icon: javascript,
-    },
-    {
-      name: "TypeScript",
-      icon: typescript,
-    },
-    {
-      name: "React JS",
-      icon: reactjs,
-    },
-    {
-      name: "Redux Toolkit",
-      icon: redux,
-    },
-    {
-      name: "Tailwind CSS",
-      icon: tailwind,
-    },
-    {
-      name: "Node JS",
-      icon: nodejs,
-    },
-    {
-      name: "MongoDB",
-      icon: mongodb,
-    },
-    {
-      name: "Three JS",
-      icon: threejs,
-    },
-    {
-      name: "git",
-      icon: git,
-    },
-    {
-      name: "figma",
-      icon: figma,
-    },
-    {
-      name: "docker",
-      icon: docker,
-    },
-  ];
+  // const technologies = [
+  //   {
+  //     name: "HTML 5",
+  //     icon: html,
+  //   },
+  //   {
+  //     name: "CSS 3",
+  //     icon: css,
+  //   },
+  //   {
+  //     name: "JavaScript",
+  //     icon: javascript,
+  //   },
+  //   {
+  //     name: "TypeScript",
+  //     icon: typescript,
+  //   },
+  //   {
+  //     name: "React JS",
+  //     icon: reactjs,
+  //   },
+  //   {
+  //     name: "Redux Toolkit",
+  //     icon: redux,
+  //   },
+  //   {
+  //     name: "Tailwind CSS",
+  //     icon: tailwind,
+  //   },
+  //   {
+  //     name: "Node JS",
+  //     icon: nodejs,
+  //   },
+  //   {
+  //     name: "MongoDB",
+  //     icon: mongodb,
+  //   },
+  //   {
+  //     name: "Three JS",
+  //     icon: threejs,
+  //   },
+  //   {
+  //     name: "git",
+  //     icon: git,
+  //   },
+  //   {
+  //     name: "figma",
+  //     icon: figma,
+  //   },
+  //   {
+  //     name: "docker",
+  //     icon: docker,
+  //   },
+  // ];
   
-  const experiences = [
-    {
-      title: "React.js Developer",
-      company_name: "Starbucks",
-      icon: starbucks,
-      iconBg: "#383E56",
-      date: "March 2020 - April 2021",
-      points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-    },
-    {
-      title: "React Native Developer",
-      company_name: "Tesla",
-      icon: tesla,
-      iconBg: "#E6DEDD",
-      date: "Jan 2021 - Feb 2022",
-      points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-    },
-    {
-      title: "Web Developer",
-      company_name: "Shopify",
-      icon: shopify,
-      iconBg: "#383E56",
-      date: "Jan 2022 - Jan 2023",
-      points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-    },
-    {
-      title: "Full stack Developer",
-      company_name: "Meta",
-      icon: meta,
-      iconBg: "#E6DEDD",
-      date: "Jan 2023 - Present",
-      points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-    },
-  ];
+  // const experiences = [
+  //   {
+  //     title: "React.js Developer",
+  //     company_name: "Starbucks",
+  //     icon: starbucks,
+  //     iconBg: "#383E56",
+  //     date: "March 2020 - April 2021",
+  //     points: [
+  //       "Developing and maintaining web applications using React.js and other related technologies.",
+  //       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+  //       "Implementing responsive design and ensuring cross-browser compatibility.",
+  //       "Participating in code reviews and providing constructive feedback to other developers.",
+  //     ],
+  //   },
+  //   {
+  //     title: "React Native Developer",
+  //     company_name: "Tesla",
+  //     icon: tesla,
+  //     iconBg: "#E6DEDD",
+  //     date: "Jan 2021 - Feb 2022",
+  //     points: [
+  //       "Developing and maintaining web applications using React.js and other related technologies.",
+  //       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+  //       "Implementing responsive design and ensuring cross-browser compatibility.",
+  //       "Participating in code reviews and providing constructive feedback to other developers.",
+  //     ],
+  //   },
+  //   {
+  //     title: "Web Developer",
+  //     company_name: "Shopify",
+  //     icon: shopify,
+  //     iconBg: "#383E56",
+  //     date: "Jan 2022 - Jan 2023",
+  //     points: [
+  //       "Developing and maintaining web applications using React.js and other related technologies.",
+  //       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+  //       "Implementing responsive design and ensuring cross-browser compatibility.",
+  //       "Participating in code reviews and providing constructive feedback to other developers.",
+  //     ],
+  //   },
+  //   {
+  //     title: "Full stack Developer",
+  //     company_name: "Meta",
+  //     icon: meta,
+  //     iconBg: "#E6DEDD",
+  //     date: "Jan 2023 - Present",
+  //     points: [
+  //       "Developing and maintaining web applications using React.js and other related technologies.",
+  //       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+  //       "Implementing responsive design and ensuring cross-browser compatibility.",
+  //       "Participating in code reviews and providing constructive feedback to other developers.",
+  //     ],
+  //   },
+  // ];
   
-  const testimonials = [
-    {
-      testimonial:
-        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
-    },
-    {
-      testimonial:
-        "I've never met a web developer who truly cares about their clients' success like Rick does.",
-      name: "Chris Brown",
-      designation: "COO",
-      company: "DEF Corp",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
-    },
-    {
-      testimonial:
-        "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-      name: "Lisa Wang",
-      designation: "CTO",
-      company: "456 Enterprises",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     testimonial:
+  //       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
+  //     name: "Sara Lee",
+  //     designation: "CFO",
+  //     company: "Acme Co",
+  //     image: "https://randomuser.me/api/portraits/women/4.jpg",
+  //   },
+  //   {
+  //     testimonial:
+  //       "I've never met a web developer who truly cares about their clients' success like Rick does.",
+  //     name: "Chris Brown",
+  //     designation: "COO",
+  //     company: "DEF Corp",
+  //     image: "https://randomuser.me/api/portraits/men/5.jpg",
+  //   },
+  //   {
+  //     testimonial:
+  //       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
+  //     name: "Lisa Wang",
+  //     designation: "CTO",
+  //     company: "456 Enterprises",
+  //     image: "https://randomuser.me/api/portraits/women/6.jpg",
+  //   },
+  // ];
   
-  const projects = [
-    {
-      name: "Property Hub",
-      description:
-        "The Property Hub Website is a dynamic platform designed to streamline property transactions, offering features for buying, selling, and renting properties. Built using HTML, CSS, PHP, and SQL as the database system, this platform provides a robust and user-friendly solution for managing property listings and inquiries.",
-      tags: [
-        {
-          name: "PHP",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "SQL",
-          color: "green-text-gradient",
-        },
-        {
-          name: "HTML5 & CSS3",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: carrent,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "NaruProd",
-      description:
-        "A creative and engaging task management app inspired by the Naruto universe. Featuring a responsive design and a Naruto-themed UI, it combines functionality with a fun, visually appealing experience.",
-      tags: [
-        {
-          name: "Cloud-Hosted",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "Web-First Design",
-          color: "green-text-gradient",
-        },
-        {
-          name: "UI/UX Design",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: jobit,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Driving School Website",
-      description:
-"A clean and responsive driving school website designed to showcase various courses, such as Beginner's Training, Defensive Driving, and License Test Preparation."   ,   tags: [
-        {
-          name: "JavaScript",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "Responsive Design",
-          color: "green-text-gradient",
-        },
-        {
-          name: "css",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
-    },
-  ];
   
-  export { services, technologies, experiences, testimonials, projects, questionSets };
+  export { services, questionset };

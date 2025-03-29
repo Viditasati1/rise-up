@@ -13,11 +13,7 @@ const CallToAction = () => {
       description: "Practice social interactions and get AI-powered feedback.",
       action: "#roleplay",
     },
-    {
-      name: "Chat with AI Support",
-      description: "Talk to our empathetic AI chatbot for immediate emotional support.",
-      action: "#chat",
-    },
+   
     {
       name: "Explore Therapy Modules",
       description: "Access curated therapy exercises to overcome social anxiety.",
@@ -26,12 +22,12 @@ const CallToAction = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center text-center gap-10 py-16 bg-gradient-to-b from-[#D9F0FF] to-[#A8D8EA]">
+    <div className="flex flex-col items-center text-center gap-10 py-16 bg-[#6A4C9C]">
       {/* Section Header */}
-      <h2 className="text-[#034752] text-4xl font-bold">
+      <h2 className="text-white text-4xl font-bold">
         Ready to Take the Next Step?
       </h2>
-      <p className="text-[#034752] text-lg max-w-3xl">
+      <p className="text-white text-lg max-w-3xl">
         Empower yourself with our tools and resources to overcome social anxiety. 
         Take action now and break the barriers!
       </p>
@@ -40,7 +36,7 @@ const CallToAction = () => {
       <div className="mt-8">
         <Link
           to="/Signup"
-          className="bg-[#10B981] text-white text-lg font-bold py-3 px-8 rounded-lg shadow-md hover:bg-[#0e966f] transition-colors duration-300"
+          className="bg-[#FF6F61] text-white text-lg font-bold py-3 px-8 rounded-lg shadow-md hover:bg-[#0e966f] transition-colors duration-300"
         >
           Start My Journey
         </Link>
@@ -51,17 +47,17 @@ const CallToAction = () => {
         {ctaItems.map((item) => (
           <div
             key={item.name}
-            className="bg-white shadow-md rounded-lg p-5 w-72 hover:shadow-lg transition-shadow duration-300"
+            className="bg-[#FF6F61] shadow-md rounded-lg p-5 w-72 hover:shadow-lg transition-shadow duration-300"
           >
-            <h3 className="text-[#034752] text-xl font-bold">{item.name}</h3>
-            <p className="text-[#10B981] text-sm mt-2">{item.description}</p>
+            <h3 className="text-white text-xl font-bold">{item.name}</h3>
+            <p className="text-white text-sm mt-2">{item.description}</p>
           </div>
         ))}
       </div>
 
       {/* Inspiration Quote */}
       <div className="mt-16 max-w-2xl text-center">
-        <p className="text-[#034752] text-lg italic">
+        <p className="text-white text-lg italic">
           "The journey of a thousand miles begins with a single step. Start yours today!"
         </p>
       </div>

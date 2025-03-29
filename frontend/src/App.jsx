@@ -1,48 +1,90 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { About, Home, Contact, Tech, Hero, Navbar, Works, StarsCanvas, Footer, Login, Signup, Dashboard } from "../src/components"; // Ensure Login and Signup are added to your components
-import { auth } from "./firebase/firebaseConfig"; // Adjust the path to your Firebase config file
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { auth } from "./firebase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
-import MultiStepForm from "./components/questions/MultistepForm";
+import {
+  About,
+  Login,
+  Signup,
+  Dashboard,
+  Contact,
+  Tech,
+  Footer,
+  Hero,
+  Navbar,
+  StarsCanvas,
+  PersonalityTest,Analysis
+} from "./components";
+import DemographicForm from "./components/DemographicForm";
 
-
-const App = () => {
+const AppContent = () => {
   const [user, setUser] = useState(null);
+  const [isNewUser, setIsNewUser] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
-  // Monitor Firebase authentication state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
+      if (currentUser) {
+        setIsNewUser(localStorage.getItem("isNewUser") === "true");
+      }
     });
-
-    // Clean up the subscription on unmount
-    return unsubscribe;
+    return () => unsubscribe();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen text-white text-xl">
+        Loading...
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <Navbar user={user} />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/tech" element={<Tech />} />
+        <Route
+          path="/demographic-info"
+          element={user && isNewUser ? <DemographicForm /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/dashboard"
+          element={user && !isNewUser ? <Dashboard /> : <Navigate to="/" />}
+        />
+        <Route path="/assessment" element={<PersonalityTest />} />
+        <Route path="/analysis" element={<Analysis />} />
+        <Route path="/" element={!user ? <Hero /> : <Navigate to={isNewUser ? "/demographic-info" : "/dashboard"} />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+      {/* Render extra public sections only if there is no logged-in user */}
+      {!user && (
+        <>
+          <About id="about" />
+          <Tech />
+          <div className="relative z-0">
+            <Contact />
+            <StarsCanvas />
+          </div>
+          <Footer />
+        </>
+      )}
+    </>
+  );
+};
+
+const App = () => {
   return (
     <BrowserRouter>
-      <div className="relative z-0 bg-gradient-to-b from-[#D9F0FF] to-[#A8D8EA]">
-        <Routes>
-          {/* Homepage route for all users */}
-          <Route
-            path="/"
-            element={<Home />}
-          />
-
-          {/* Show login/signup pages if not authenticated */}
-          {!user ? (
-            <>
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-            </>
-          ) : (
-            // Redirect authenticated users to questionnaire (you can later replace this with the actual question page)
-            <Route path="/" element={<Navigate to="/dashboard" />} />
-          )}
-
-          {/* You can add the questionnaire route here once ready */}
-          <Route path="/questions" element={<Dashboard />} />
-        </Routes>
+      <div className="relative z-0 bg-gradient-to-b from-[#2D1B7F] to-[#6A4C9C]">
+        <AppContent />
       </div>
     </BrowserRouter>
   );
