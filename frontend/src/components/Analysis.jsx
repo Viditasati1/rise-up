@@ -2,18 +2,21 @@ import React, { useState, useEffect } from "react";
 import { questionset } from "../constants/index";
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, Legend,
-  Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
   PieChart, Pie, Cell
 } from "recharts";
 
 const Analysis = () => {
+  const onSubmit = () => {
+    window.location.href = "/transformation-resources"; // Change to your desired page
+  };
+  
   const [analysisData, setAnalysisData] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
     const storedQuiz = localStorage.getItem("quizResponses");
     if (!storedQuiz) {
-      setError("No quiz responses found.");
+      setError("No quiz responses found. Please complete the quiz.");
       return;
     }
     const submission = JSON.parse(storedQuiz);
@@ -40,24 +43,27 @@ const Analysis = () => {
       const sectionTotal = sectionResponses.reduce((sum, val) => sum + val, 0);
       const minPossible = numQuestions * 1;
       const maxPossible = numQuestions * 4;
-      const range = maxPossible - minPossible;
-      const moderateThreshold = minPossible + (range * 1) / 3;
-      const healthyThreshold = minPossible + (range * 2) / 3;
+      const percentageScore = ((sectionTotal - minPossible) / (maxPossible - minPossible)) * 100;
 
+      let category = "";
       let message = "";
-      if (sectionTotal >= healthyThreshold) {
-        message = "Healthy Mental State – Low stress, positive habits.";
-      } else if (sectionTotal >= moderateThreshold) {
-        message = "Moderate Concerns – Signs of stress or imbalance; could use support.";
+
+      if (percentageScore >= 80) {
+        category = "Good ✅";
+        message = "You're doing great in this section! Keep up the good work. 💪";
+      } else if (percentageScore >= 50) {
+        category = "Weak ⚠️";
+        message = "You have some struggles in this area. Consider working on improvements. 🔍";
       } else {
-        message = "Significant Concerns – High stress or mental health challenges; professional intervention recommended.";
+        category = "Significant Concern ❌";
+        message = "This section shows a high level of concern. Seeking help or support might be beneficial. 💙";
       }
 
       sectionsAnalysis.push({
         sectionName: section.name,
         totalScore: sectionTotal,
-        minPossible,
-        maxPossible,
+        percentageScore,
+        category,
         message,
       });
     });
@@ -65,11 +71,11 @@ const Analysis = () => {
     const overallTotal = responses.reduce((sum, val) => sum + val, 0);
     let overallMessage = "";
     if (overallTotal >= 60 && overallTotal <= 80) {
-      overallMessage = "Healthy Mental State – Low stress, positive habits.";
+      overallMessage = "Your mental health is in a **good state**! Keep maintaining positive habits. 😊";
     } else if (overallTotal >= 40 && overallTotal < 60) {
-      overallMessage = "Moderate Concerns – Signs of stress or imbalance; could use support.";
+      overallMessage = "You have **moderate concerns**. Some areas may need attention. Consider healthy routines. 🏋️";
     } else if (overallTotal >= 20 && overallTotal < 40) {
-      overallMessage = "Significant Concerns – High stress or mental health challenges; professional intervention recommended.";
+      overallMessage = "You are experiencing **significant concerns**. It’s important to seek support. 💙";
     } else {
       overallMessage = "Score out of expected range.";
     }
@@ -91,18 +97,12 @@ const Analysis = () => {
 
   const sectionChartData = analysisData.sectionsAnalysis.map((section) => ({
     name: section.sectionName,
-    score: section.totalScore,
-  }));
-
-  const radarChartData = analysisData.sectionsAnalysis.map((section) => ({
-    subject: section.sectionName,
-    A: section.totalScore,
-    fullMark: section.maxPossible,
+    score: section.percentageScore,
   }));
 
   const pieData = [
-    { name: "Healthy", value: analysisData.overallTotal >= 60 ? 1 : 0, color: "#16a34a" },
-    { name: "Moderate", value: analysisData.overallTotal >= 40 && analysisData.overallTotal < 60 ? 1 : 0, color: "#facc15" },
+    { name: "Good Mental Health", value: analysisData.overallTotal >= 60 ? 1 : 0, color: "#16a34a" },
+    { name: "Moderate Concerns", value: analysisData.overallTotal >= 40 && analysisData.overallTotal < 60 ? 1 : 0, color: "#facc15" },
     { name: "Significant Concerns", value: analysisData.overallTotal < 40 ? 1 : 0, color: "#dc2626" },
   ];
 
@@ -122,8 +122,18 @@ const Analysis = () => {
           {analysisData.sectionsAnalysis.map((section, idx) => (
             <div key={idx} className="border-l-4 p-3 my-3 rounded-lg shadow-sm bg-gray-50">
               <h3 className="text-xl font-semibold text-gray-700">{section.sectionName}</h3>
-              <p><strong>Total Score:</strong> {section.totalScore} (Range: {section.minPossible} - {section.maxPossible})</p>
+              <p><strong>Score:</strong> {section.totalScore} ({section.percentageScore.toFixed(1)}%)</p>
+              <p className={`text-lg font-semibold ${section.category === "Good ✅" ? "text-green-600" : section.category === "Weak ⚠️" ? "text-yellow-500" : "text-red-500"}`}>
+                <strong>Category:</strong> {section.category}
+              </p>
               <p className="text-sm text-gray-600">{section.message}</p>
+
+              {/* Progress Bar */}
+              <div className="w-full bg-gray-200 rounded-full h-4 mt-2">
+                <div className={`h-4 rounded-full ${section.category === "Good ✅" ? "bg-green-500" : section.category === "Weak ⚠️" ? "bg-yellow-500" : "bg-red-500"}`}
+                  style={{ width: `${section.percentageScore}%` }}>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -141,27 +151,14 @@ const Analysis = () => {
             </BarChart>
           </div>
 
-          {/* Radar Chart */}
-          <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-            <RadarChart outerRadius={90} width={350} height={250} data={radarChartData}>
-              <PolarGrid />
-              <PolarAngleAxis dataKey="subject" />
-              <PolarRadiusAxis angle={30} domain={[0, 40]} />
-              <Radar name="Score" dataKey="A" stroke="#2563eb" fill="#60a5fa" fillOpacity={0.6} />
-            </RadarChart>
-          </div>
-
           {/* Pie Chart */}
-          <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-            <PieChart width={350} height={250}>
-              <Pie data={pieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
-                {pieData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Pie>
-              <Legend />
-            </PieChart>
-          </div>
+          <button
+  onClick={onSubmit}
+  className="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+>
+  Let's Transform Your Life
+</button>
+          
         </div>
       </div>
     </div>

@@ -13,10 +13,11 @@ import {
   Hero,
   Navbar,
   StarsCanvas,
-  PersonalityTest,Analysis
+  PersonalityTest,
+  Analysis
 } from "./components";
 import DemographicForm from "./components/DemographicForm";
-
+import Transformation from "./components/Transformation";
 const AppContent = () => {
   const [user, setUser] = useState(null);
   const [isNewUser, setIsNewUser] = useState(false);
@@ -36,7 +37,7 @@ const AppContent = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen text-white text-xl">
+      <div className="flex items-center justify-center h-screen text-[#034752] text-xl">
         Loading...
       </div>
     );
@@ -46,6 +47,7 @@ const AppContent = () => {
     <>
       <Navbar user={user} />
       <Routes>
+        <Route path="/transformation-resources" element={<Transformation/>}/>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
@@ -61,9 +63,19 @@ const AppContent = () => {
         />
         <Route path="/assessment" element={<PersonalityTest />} />
         <Route path="/analysis" element={<Analysis />} />
-        <Route path="/" element={!user ? <Hero /> : <Navigate to={isNewUser ? "/demographic-info" : "/dashboard"} />} />
+        <Route
+          path="/"
+          element={
+            !user ? (
+              <Hero />
+            ) : (
+              <Navigate to={isNewUser ? "/demographic-info" : "/dashboard"} />
+            )
+          }
+        />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      
       {/* Render extra public sections only if there is no logged-in user */}
       {!user && (
         <>
@@ -83,7 +95,7 @@ const AppContent = () => {
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="relative z-0 bg-gradient-to-b from-[#2D1B7F] to-[#6A4C9C]">
+      <div className="relative z-0 bg-gradient-to-b from-[#cfe0e8] to-[#87bdd8]">
         <AppContent />
       </div>
     </BrowserRouter>

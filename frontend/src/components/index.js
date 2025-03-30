@@ -9,6 +9,7 @@ import Footer from './Footer';
 import Login from './Login';import Signup from './Signup';
 import Dashboard from './Dashboard'
 import PersonalityTest from './PersonalityTest';
+import Transformation from './Transformation';
 
 
 export {
@@ -19,6 +20,7 @@ export {
   Navbar,
   About,
   Tech,
+  Transformation,
   
   
   Contact,

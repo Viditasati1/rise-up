@@ -19,49 +19,47 @@ const Hero = () => {
 
   const handleGetStarted = () => {
     if (user) {
-      navigate("/questions"); // Redirect to dashboard if logged in
+      navigate("/questions");
     } else {
-      navigate("/login"); // Redirect to login if not logged in
+      navigate("/login");
     }
   };
 
   return (
-    <section className="relative w-full h-screen mx-auto bg-gradient-to-b from-[#2D1B7F] to-[#6A4C9C]">
-      <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}>
-        <div className="flex flex-col justify-center items-center mt-5">
-          <div className="w-5 h-5 rounded-full bg-[#FF6F61]" />
-          <div className="w-1 sm:h-80 h-40 bg-gradient-to-b from-[#FF6F61] to-[#F8B400]" />
-        </div>
-        <div>
-          <h1 className={`${styles.heroHeadText} text-[#F1F1F1]`}>
-            "Break Free. Reclaim Your Confidence.” <span className="text-[#FF6F61]">Rise Up.</span>
-          </h1>
-          <p className={`${styles.heroSubText} mt-2 text-[#F1F1F1]`}>
-            “We’re here to help you <br className="sm:block hidden" />
-            conquer social anxiety, one step at a time.”
-          </p>
+    <section className="relative w-full h-screen mx-auto bg-gradient-to-b from-[#2D1B7F] to-[#6A4C9C] flex flex-col justify-center items-center text-center">
+      <div className="max-w-4xl px-6">
+        {/* Hero Title */}
+        <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+          "Break Free. Reclaim Your Confidence.”{" "}
+          <span className="text-[#F8B400]">Rise Up.</span>
+        </h1>
 
-          {/* Buttons */}
-          <div className="mt-8 flex flex-wrap gap-4">
-            <button
-              onClick={handleGetStarted}
-              className="px-6 py-3 bg-[#FF6F61] text-white font-medium text-lg rounded-lg shadow-lg hover:bg-[#F8B400] transition-all ease-in-out duration-300"
-            >
-              Get Started
-            </button>
-            <a
-              href="#about"
-              className="px-6 py-3 bg-[#2D1B7F] text-white font-medium text-lg rounded-lg shadow-lg hover:bg-[#1E1448] transition-all ease-in-out duration-300"
-            >
-              Learn More
-            </a>
-          </div>
+        {/* Hero Subtitle */}
+        <p className="mt-4 text-lg md:text-xl text-white">
+          "We’re here to help you conquer social anxiety, one step at a time."
+        </p>
+
+        {/* Call-to-Action Buttons */}
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <button
+            onClick={handleGetStarted}
+            className="px-6 py-3 bg-[#6A4C9C] text-white font-medium text-lg rounded-lg shadow-lg hover:bg-[#F8B400] transition-all ease-in-out duration-300"
+          >
+            Get Started
+          </button>
+          <a
+            href="#about"
+            className="px-6 py-3 bg-[#2D1B7F] text-white font-medium text-lg rounded-lg shadow-lg hover:bg-[#1E1448] transition-all ease-in-out duration-300"
+          >
+            Learn More
+          </a>
         </div>
       </div>
 
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-10 w-full flex justify-center">
         <a href="#about">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-[#FF6F61] flex justify-center items-start p-2">
+          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-[#F8B400] flex justify-center items-start p-2">
             <motion.div
               animate={{ y: [0, 24, 0] }}
               transition={{
@@ -69,7 +67,7 @@ const Hero = () => {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className="w-3 h-3 rounded-full bg-[#FF6F61] mb-1"
+              className="w-3 h-3 rounded-full bg-[#F8B400] mb-1"
             />
           </div>
         </a>

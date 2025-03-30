@@ -17,61 +17,55 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#6A4C9C] to-[#2D1B7F] text-white p-6 mt-10">
-      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6 text-gray-900">
+    <div className="min-h-screen bg-gradient-to-b from-[#cfe0e8] to-[#87bdd8] text-gray-900 flex justify-center items-center p-6">
+      <div className="max-w-3xl w-full bg-white rounded-xl shadow-xl p-8">
+        
         {/* User Welcome Section */}
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-[#2D1B7F]">Welcome, {user?.displayName || "User"}! 🎉</h2>
+        <div className="text-center mb-6">
+          <h2 className="text-3xl font-bold text-[#034752]">
+            Welcome, {user?.displayName || "User"}! 🎉
+          </h2>
           <p className="text-gray-600">Manage your account and explore features.</p>
         </div>
 
         {/* User Info Card */}
-        <div className="flex flex-col items-center my-6">
+        <div className="flex flex-col items-center">
           {user?.photoURL ? (
-            <img src={user.photoURL} alt="Profile" className="w-20 h-20 rounded-full shadow-md" />
+            <img
+              src={user.photoURL}
+              alt="Profile"
+              className="w-24 h-24 rounded-full shadow-md border-4 border-[#87bdd8]"
+            />
           ) : (
-            <div className="w-20 h-20 bg-gray-300 rounded-full flex items-center justify-center text-gray-700 text-2xl">
+            <div className="w-24 h-24 bg-gray-300 rounded-full flex items-center justify-center text-gray-700 text-2xl font-semibold">
               {user?.email?.charAt(0).toUpperCase()}
             </div>
           )}
-          <p className="mt-2 text-lg font-semibold">{user?.email}</p>
+          <p className="mt-3 text-lg font-semibold">{user?.email}</p>
         </div>
 
-        {/* Navigation Cards (Now Clickable) */}
-        <div className="grid grid-cols-2 gap-6 text-center">
-          <div
-            className="dashboard-card"
-            onClick={() => navigate("/profile")}
-          >
-            <h3>Profile</h3>
-          </div>
-
-          <div
-            className="dashboard-card"
-            onClick={() => navigate("/articles")}
-          >
-            <h3>Articles</h3>
-          </div>
-
-          <div
-            className="dashboard-card"
-            onClick={() => navigate("/assessment")}
-          >
-            <h3>Take the Assessment</h3>
-          </div>
-
-          <div
-            className="dashboard-card"
-            onClick={() => navigate("/analysis")}
-          >
-            <h3>Analysis</h3>
-          </div>
+        {/* Navigation Cards */}
+        <div className="grid grid-cols-2 gap-4 mt-8">
+          {[
+            { label: "Profile", path: "/profile" },
+            { label: "Articles", path: "/articles" },
+            { label: "Assessment", path: "/assessment" },
+            { label: "Analysis", path: "/analysis" },
+          ].map(({ label, path }) => (
+            <div
+              key={label}
+              className="bg-[#b7d7e8] text-gray-900 rounded-lg p-4 flex items-center justify-center text-lg font-semibold shadow-md cursor-pointer hover:bg-[#034752] hover:text-white transition-transform transform hover:scale-105"
+              onClick={() => navigate(path)}
+            >
+              {label}
+            </div>
+          ))}
         </div>
 
         {/* Logout Button */}
         <button
           onClick={handleLogout}
-          className="mt-6 w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition"
+          className="mt-6 w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-red-600 transition-transform transform hover:scale-105 shadow-md"
         >
           Logout
         </button>

@@ -46,7 +46,7 @@ const DemographicForm = () => {
 
         // Set "isNewUser" flag to false instead of removing it
         localStorage.setItem("isNewUser", "false");
-        setTimeout(() => navigate("/login"), 5);
+        setTimeout(() => navigate("/login"),1);
       }
     } catch (err) {
       setError(err.message);

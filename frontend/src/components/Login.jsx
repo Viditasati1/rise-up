@@ -19,7 +19,7 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log("User logged in:", userCredential.user);
-      // Redirect to the demographics page after successful login
+      
       navigate("/dashboard");
     } catch (err) {
       console.error("Login error:", err.message);

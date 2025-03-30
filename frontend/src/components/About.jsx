@@ -9,29 +9,22 @@ import { SectionWrapper } from './hoc';
 import { staggerContainer } from '../utils/motion';
 
 const ServiceCard = ({ index, title, description }) => (
-  <Tilt className="xs:w-[250px] w-full">
+  <Tilt
+    className="xs:w-[250px] w-full"
+    options={{ max: 45, scale: 1, speed: 450 }} // Moved options inside Tilt
+  >
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className="w-full  p-[1px] rounded-[20px] shadow-card"
+      className="w-full p-[1px] rounded-[20px] shadow-card bg-gradient-to-r from-[#2D1B7F] to-[#6A4C9C]"
     >
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-[#6A4C9C] rounded-[20px] py-5 px-8 min-h-[280px] flex justify-evenly items-start flex-col"
-      >
-        <h3 className=" text-[20px] font-bold text-center mb-2">
-          {title}
-        </h3>
-        <p className="text-[#FF6F61] text-[17px] leading-[24px] text-center">
-          {description}
-        </p>
+      <div className="rounded-[20px] py-5 px-8 min-h-[280px] flex flex-col justify-evenly items-center text-center">
+        <h3 className="text-white text-[20px] font-bold">{title}</h3>
+        <p className="text-[#FF6F61] text-[17px] leading-[24px]">{description}</p>
       </div>
     </motion.div>
   </Tilt>
 );
+
 const About = () => {
   return (
     <>
