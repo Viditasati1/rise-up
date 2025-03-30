@@ -52,7 +52,7 @@ const PersonalityTest = () => {
   const handleAnswerChange = (optionIndex) => {
     setAnswers((prevAnswers) => {
       const updatedAnswers = [...prevAnswers];
-      updatedAnswers[currentIndex] = optionIndex + 1;
+      updatedAnswers[currentIndex] = 4 -optionIndex;
       return updatedAnswers;
     });
   };
@@ -106,16 +106,17 @@ const PersonalityTest = () => {
         <h3>Section: {currentQuestion.sectionName}</h3>
         <p>{currentQuestion.text}</p>
         <div className="options">
-          {currentQuestion.options.map((option, idx) => (
-            <button
-              key={idx}
-              onClick={() => handleAnswerChange(idx)}
-              className={answers[currentIndex] === idx + 1 ? "selected" : ""}
-            >
-              {option}
-            </button>
-          ))}
-        </div>
+  {currentQuestion.options.map((option, idx) => (
+    <button
+      key={idx}
+      onClick={() => handleAnswerChange(idx)}
+      className={answers[currentIndex] === (4 - idx) ? "selected" : ""}
+    >
+      {option}
+    </button>
+  ))}
+</div>
+
       </div>
       <div className="navigation">
         <button onClick={handlePrevious} disabled={currentIndex === 0}>

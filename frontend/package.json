@@ -21,6 +21,7 @@
     "react-router-dom": "^7.0.2",
     "react-tilt": "^1.0.2",
     "react-vertical-timeline-component": "^3.5.3",
+    "recharts": "^2.15.1",
     "three": "^0.171.0"
   },
   "devDependencies": {
