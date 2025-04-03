@@ -18,10 +18,12 @@ const Transformation = () => {
     const fetchTasks = () => {
         setLoading(true);
         const today = new Date().getDate();
-        const storedCompletedTasks = JSON.parse(localStorage.getItem(`completedTasks-${today}`)) || [];
-        const storedUncompletedTasks = JSON.parse(localStorage.getItem(`uncompletedTasks-${today}`)) || [];
+        
+        // Use a fallback default value to ensure valid JSON is parsed
+        const storedCompletedTasks = JSON.parse(localStorage.getItem(`completedTasks-${today}`) || "[]");
+        const storedUncompletedTasks = JSON.parse(localStorage.getItem(`uncompletedTasks-${today}`) || "[]");
 
-        // Load today's task from JSON
+        // Load today's tasks from JSON
         const taskSet = firstTenDaysTasksSet.task?.[0]?.tasks || []; 
         const taskData = taskSet.find(t => t.day === (today % 10 || 10)); 
         let todayTasks = taskData ? taskData.tasks : [];
@@ -65,13 +67,13 @@ const Transformation = () => {
                 return newCompleted;
             });
 
-            return updatedTasks;
-        });
+            setUserInput((prev) => {
+                const updated = { ...prev };
+                delete updated[index];
+                return updated;
+            });
 
-        setUserInput((prev) => {
-            const updated = { ...prev };
-            delete updated[index];
-            return updated;
+            return updatedTasks;
         });
     };
 
