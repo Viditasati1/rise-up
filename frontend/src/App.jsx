@@ -16,6 +16,7 @@ import {
   PersonalityTest,
   Analysis
 } from "./components";
+import Forum from "./components/Forum";
 import DemographicForm from "./components/DemographicForm";
 import Transformation from "./components/Transformation";
 const AppContent = () => {
@@ -53,6 +54,8 @@ const AppContent = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/tech" element={<Tech />} />
+        <Route path="/forum" element={<Forum />} />
+
         <Route
           path="/demographic-info"
           element={user && isNewUser ? <DemographicForm /> : <Navigate to="/" />}

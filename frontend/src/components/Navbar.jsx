@@ -47,6 +47,7 @@ const Navbar = () => {
             <span className="sm:block hidden text-[#005f73]">| Break the Barriers</span>
           </p>
         </Link>
+        
 
         {/* Desktop Navigation */}
         <ul className="list-none hidden sm:flex flex-row gap-10">
