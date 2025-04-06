@@ -660,131 +660,79 @@ const questionset = {
   ]
 };
 
-const firstTasksSet={
-
-task:[
-  
-    {
-      age_group: "18_to_25",
-      tasks: 
-      
-         [
-          {
-            "day": 1,
-            "title": "Career & Productivity Boost",
-            "tasks": [
-              "Write down three small tasks you can complete today.",
-              "Use the 5-minute rule—work on something for 5 minutes, then decide if you want to continue.",
-              "Remove one distraction from your workspace (clutter, phone, notifications).",
-              "Set a realistic goal for the week—small but meaningful.",
-              "End the day by listing one thing you did well today."
-            ]
-          },
-          {
-            "day": 2,
-            "title": "Mindful Coping & Habits",
-            "tasks": [
-              "Track how often you use distractions (social media, games).",
-              "Swap 5 minutes of scrolling for deep breathing or stretching.",
-              "Ask yourself: 'Is this habit helping me or harming me?'",
-              "Choose one habit to reduce, without forcing yourself.",
-              "Celebrate a positive habit you already have (even if it’s small!)."
-            ]
-          },
-          {
-            "day": 3,
-            "title": "Social Life & Relationships",
-            "tasks": [
-              "Send a quick text or voice message to a friend or family member.",
-              "Write down one thing you appreciate about someone close to you.",
-              "Practice active listening—when someone talks, focus on them fully.",
-              "Identify one toxic influence in your life & brainstorm how to distance yourself.",
-              "Say no to something draining today (without guilt!)."
-            ]
-          },
-          {
-            "day": 4,
-            "title": "Financial Awareness",
-            "tasks": [
-              "Try a no-spend challenge for the day.",
-              "List your three biggest expenses and see if any can be reduced.",
-              "Watch or read one small financial tip today.",
-              "Check your bank balance and note your spending patterns.",
-              "Plan one free activity to enjoy instead of spending money."
-            ]
-          },
-          {
-            "day": 5,
-            "title": "Mental & Emotional Reset",
-            "tasks": [
-              "Step outside and take 10 deep breaths.",
-              "Write down one thing that excites you about the future.",
-              "Change one thing in your surroundings (clean, rearrange, or add something fresh).",
-              "Do a 5-minute journaling session—just write your thoughts freely.",
-              "Treat yourself to something small & guilt-free."
-            ]
-          },
-          {
-            "day": 6,
-            "title": "Career & Focus Boost",
-            "tasks": [
-              "Plan your day in time blocks (e.g., 30-minute focus sessions).",
-              "Take a 5-minute break every hour to reset.",
-              "Choose one learning activity to do (podcast, article, tutorial).",
-              "Write down one challenge and brainstorm a tiny step toward solving it.",
-              "Recognize one personal strength that helps you professionally."
-            ]
-          },
-          {
-            "day": 7,
-            "title": "Healthy Coping & Habits",
-            "tasks": [
-              "Before using a distraction (social media, etc.), pause for 10 seconds and ask: 'Do I really need this?'",
-              "Try a 10-minute movement session (walk, stretch, or light workout).",
-              "Drink an extra glass of water today.",
-              "Identify one negative habit and set a small limit (e.g., 10% less).",
-              "Focus on progress, not perfection—forgive yourself for setbacks."
-            ]
-          },
-          {
-            "day": 8,
-            "title": "Deepening Connections",
-            "tasks": [
-              "Call or meet someone you care about.",
-              "Express gratitude to one person (a simple 'Thank you' counts!).",
-              "Set a boundary with someone who drains you.",
-              "Plan a social activity for the next week.",
-              "Do one kind act for someone today."
-            ]
-          },
-          {
-            "day": 9,
-            "title": "Financial Stability Steps",
-            "tasks": [
-              "Track where you spent money this week.",
-              "Research one way to save on daily expenses.",
-              "Set a tiny savings goal (even ₹50 counts!).",
-              "Try a cash-only challenge for the day.",
-              "Learn one fact about investing or budgeting."
-            ]
-          },
-          {
-            "day": 10,
-            "title": "Full Self-Care & Reflection",
-            "tasks": [
-              "Sleep 30 minutes earlier than usual.",
-              "Eat one healthy meal or snack mindfully.",
-              "List 3 things you’re proud of from this challenge.",
-              "Do one activity just for fun today.",
-              "Plan your next small step in any area of life."
-            ]
-          }
-        ]
-      }
+// Task data categorized by age groups and sections
+const firstTenDaysTasksSet = {
+  "12_to_18": {
+    "Self-Perception and Emotional Health": [
+      ["Write down three things you like about yourself.", "Practice positive affirmations for 5 minutes."],
+      ["Reflect on a recent emotional challenge and how you handled it.", "Avoid negative self-talk today."]
+    ],
+    "Social Life and Relationships": [
+      ["Reach out to a friend or family member for a meaningful conversation.", "Join a social or hobby group."],
+      ["Practice active listening in a conversation.", "Send an appreciation message to someone important."]
+    ],
+    "Habits and Coping Mechanisms": [
+      ["Practice deep breathing for 5 minutes.", "Write in a gratitude journal before bed."],
+      ["Go for a 20-minute walk.", "Reduce screen time by 30 minutes today."]
+    ],
+    "Career and Financial Stress": [
+      ["Plan your weekly career or financial goals.", "Track your expenses for the day."],
+      ["Learn about a new investment or savings option.", "Avoid unnecessary spending for a day."]
+    ],
+    "Overall Mental Health": [
+      ["Do 5 minutes of mindfulness meditation.", "Write down your thoughts and emotions in a journal."],
+      ["Engage in a relaxing activity (art, music, etc.).", "Avoid negative self-talk for the day."]
+    ],
+    "Thoughts and Self-Control": [
+      ["Identify one negative thought and reframe it positively.", "Practice mindful eating at one meal today."],
+      ["Take a break from social media for a few hours.", "Observe your emotions without reacting immediately."]
     ]
-  
-
-}
+  },
+  "18_to_25": {
+    "Career and Academic Pressure": [
+      ["Set a SMART goal for your career or studies.", "Break down a big academic/career goal into smaller steps."],
+      ["Schedule 1 hour of focused, distraction-free work today.", "Learn a new productivity technique (like Pomodoro)."]
+    ],
+    "Personal Habits and Coping Mechanisms": [
+      ["Try deep breathing exercises for 5 minutes.", "Maintain a gratitude journal and write 3 things you are grateful for."],
+      ["Go for a 20-minute walk without your phone.", "Reduce screen time by 30 minutes today."]
+    ],
+    "Relationships and Social Life": [
+      ["Reach out to a friend or loved one for a meaningful conversation.", "Practice active listening in a conversation today."],
+      ["Join a social or hobby group related to your interests.", "Compliment someone genuinely today."]
+    ],
+    "Financial Stress": [
+      ["Track your expenses for the day in a journal or app.", "Create a simple budget for the week."],
+      ["Learn about one investment or savings option.", "Cook a meal at home instead of eating out."]
+    ],
+    "Overall Mental Health": [
+      ["Do 5 minutes of mindfulness meditation.", "Write down your thoughts and emotions in a journal."],
+      ["Engage in a relaxing activity (art, music, etc.).", "Avoid negative self-talk for the day."]
+    ]
+  },
+  "25_to_40": {
+    "Career and Life Balance": [
+      ["Set clear boundaries between work and personal life.", "Plan your weekly schedule to balance work and leisure."],
+      ["Dedicate 30 minutes to a passion project.", "Avoid work emails after office hours."]
+    ],
+    "Family and Social Responsibilities": [
+      ["Have a meaningful conversation with a family member.", "Spend quality time with your children or spouse without distractions."],
+      ["Help a family member with a task.", "Plan a family outing or gathering."]
+    ],
+    "Stress and Coping Mechanisms": [
+      ["Practice 10 minutes of guided meditation.", "Write down three things causing stress and one action for each."],
+      ["Try progressive muscle relaxation before bed.", "Take a 15-minute walk in nature."]
+    ],
+    "Relationships and Emotional Health": [
+      ["Express appreciation to a friend or partner.", "Practice active listening during a conversation."],
+      ["Resolve a small conflict peacefully.", "Write a letter to yourself reflecting on personal growth."]
+    ],
+    "Self-Care and Happiness": [
+      ["Take an hour to do something that brings you joy.", "Limit social media use today."],
+      ["Start a new book or hobby.", "Cook a healthy meal from scratch."]
+    ]
+  }
+};
 
 
 const services = [
@@ -816,4 +764,4 @@ const services = [
 ];
 
 
-export { services, questionset, firstTasksSet };
+export { services, questionset, firstTenDaysTasksSet };

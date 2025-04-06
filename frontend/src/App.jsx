@@ -16,6 +16,7 @@ import {
   PersonalityTest,
   Analysis
 } from "./components";
+import Forum from "./components/Forum";
 import DemographicForm from "./components/DemographicForm";
 import Transformation from "./components/Transformation";
 const AppContent = () => {
@@ -53,6 +54,8 @@ const AppContent = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/tech" element={<Tech />} />
+        <Route path="/forum" element={<Forum />} />
+
         <Route
           path="/demographic-info"
           element={user && isNewUser ? <DemographicForm /> : <Navigate to="/" />}
@@ -95,7 +98,7 @@ const AppContent = () => {
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="relative z-0 bg-gradient-to-b from-[#cfe0e8] to-[#87bdd8]">
+      <div className="relative z-0 bg-gradient-to-b from-[#F5F5DC] to-[#C0A080] ">
         <AppContent />
       </div>
     </BrowserRouter>

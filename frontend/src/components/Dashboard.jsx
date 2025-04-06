@@ -47,8 +47,8 @@ const Dashboard = () => {
         {/* Navigation Cards */}
         <div className="grid grid-cols-2 gap-4 mt-8">
           {[
-            { label: "Profile", path: "/profile" },
-            { label: "Articles", path: "/articles" },
+            { label: "Forum", path: "/forum" },
+            { label: "Transform", path: "/transformation-resources" },
             { label: "Assessment", path: "/assessment" },
             { label: "Analysis", path: "/analysis" },
           ].map(({ label, path }) => (
